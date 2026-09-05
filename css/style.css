@@ -1,0 +1,138 @@
+/* Base Typography */
+@font-face {
+    font-family: 'CustomArabicFont';
+    src: url('../assets/fonts/TWFzbWFrLm90ZjE2NTY0ODc2MTEyMzc=.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html[dir="rtl"] { font-family: 'CustomArabicFont', 'Tajawal', sans-serif; }
+html[dir="ltr"] { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+.dark .glass-nav {
+    background: rgba(9, 13, 26, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(208, 231, 230, 0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .glass-card {
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(149, 204, 221, 0.14);
+}
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -10px rgba(41, 54, 129, 0.14);
+}
+.dark .glass-card:hover {
+    border-color: rgba(66, 116, 217, 0.4);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(66, 116, 217, 0.2);
+}
+
+/* Scalpel Switch Styling */
+.scalpel-toggle {
+    position: relative;
+    background: linear-gradient(135deg, #293681, #141E38);
+    border: 1px solid rgba(149, 204, 221, 0.45);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.scalpel-toggle:hover {
+    border-color: #95CCDD;
+    box-shadow: 0 0 16px rgba(149, 204, 221, 0.5);
+}
+.scalpel-blade-indicator {
+    background: linear-gradient(135deg, #95CCDD 0%, #4274D9 100%);
+    box-shadow: 0 0 12px rgba(149, 204, 221, 0.6);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[dir="rtl"] .scalpel-blade-indicator.en-active {
+    transform: translateX(-100%);
+}
+[dir="ltr"] .scalpel-blade-indicator.en-active {
+    transform: translateX(100%);
+}
+
+/* Animated Canvas Background */
+#medical-particles-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.65;
+    transition: opacity 0.5s ease;
+}
+.dark #medical-particles-bg {
+    opacity: 0.85;
+}
+
+/* Ambient Glowing Blobs */
+.ambient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #95CCDD; border-radius: 9999px; }
+.dark ::-webkit-scrollbar-thumb { background: #293681; }
+::-webkit-scrollbar-thumb:hover { background: #4274D9; }
+
+/* Multilingual element toggle */
+[dir="rtl"] .lang-en { display: none !important; }
+[dir="rtl"] .lang-ar { display: inline-block; }
+[dir="ltr"] .lang-ar { display: none !important; }
+[dir="ltr"] .lang-en { display: inline-block; }
+
+/* Modal transitions */
+#cert-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(9, 13, 26, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+#cert-modal.active {
+    display: flex !important;
+}
+
+/* Animated Contact Icon Cards */
+.contact-interactive-card {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.contact-interactive-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 16px 30px -8px rgba(66, 116, 217, 0.4);
+}
